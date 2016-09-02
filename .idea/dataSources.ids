@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Sqlite-data-dev.sqlite" uuid="8e161ba0-c8f6-4380-bbb4-a0844b92662e">
+    <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+      <schema id="1">
+        <visible>1</visible>
+      </schema>
+      <table id="2" parent="1" name="follows"/>
+      <table id="3" parent="1" name="posts"/>
+      <table id="4" parent="1" name="roles"/>
+      <table id="5" parent="1" name="users"/>
+      <column id="6" parent="2" name="follower_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="7" parent="2" name="followed_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="8" parent="2" name="timestamp">
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="9" parent="2">
+        <columns>follower_id
+followed_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="10" parent="2" name="#FAKE_follows_1">
+        <name-surrogate>1</name-surrogate>
+        <columns>follower_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>users(id)</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="11" parent="2" name="#FAKE_follows_2">
+        <name-surrogate>1</name-surrogate>
+        <columns>followed_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>users(id)</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="12" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="13" parent="3" name="body">
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="14" parent="3" name="timestamp">
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="15" parent="3" name="author_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="16" parent="3" name="body_html">
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <index id="17" parent="3" name="ix_posts_timestamp">
+        <columns>timestamp</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="18" parent="3">
+        <columns>id)
+foreign key(author_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="19" parent="3" name="#FAKE_posts_1">
+        <name-surrogate>1</name-surrogate>
+        <columns>author_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>users(id)</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="20" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="21" parent="4" name="name">
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
+      </column>
+      <column id="22" parent="4" name="default">
+        <data-type>BOOLEAN(0,-1)|4</data-type>
+      </column>
+      <column id="23" parent="4" name="permissions">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <index id="24" parent="4" name="sqlite_autoindex_roles_1">
+        <name-surrogate>1</name-surrogate>
+        <columns>name</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="25" parent="4" name="ix_roles_default">
+        <columns>default</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="26" parent="4">
+        <columns>id)
+unique (name</columns>
+        <primary>1</primary>
+      </key>
+      <column id="27" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="28" parent="5" name="email">
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
+      </column>
+      <column id="29" parent="5" name="username">
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
+      </column>
+      <column id="30" parent="5" name="role_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="31" parent="5" name="password_hash">
+        <data-type>VARCHAR(128) (0,-1)|12</data-type>
+      </column>
+      <column id="32" parent="5" name="confirmed">
+        <data-type>BOOLEAN(0,-1)|4</data-type>
+      </column>
+      <column id="33" parent="5" name="name">
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
+      </column>
+      <column id="34" parent="5" name="location">
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
+      </column>
+      <column id="35" parent="5" name="about_me">
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="36" parent="5" name="member_since">
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="37" parent="5" name="last_seen">
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="38" parent="5" name="avatar_hash">
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
+      </column>
+      <index id="39" parent="5" name="ix_users_email">
+        <columns>email</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="40" parent="5" name="ix_users_username">
+        <columns>username</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="41" parent="5">
+        <columns>id)
+foreign key(role_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="42" parent="5" name="#FAKE_users_1">
+        <name-surrogate>1</name-surrogate>
+        <columns>role_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>roles(id)</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+  <data-source name="Sqlite (Xerial) - tysql.sqlite" uuid="c0c0be11-26da-43b1-a55c-0f38a9393bed">
+    <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+      <schema id="1">
+        <visible>1</visible>
+      </schema>
+      <table id="2" parent="1" name="Customers"/>
+      <table id="3" parent="1" name="OrderItems"/>
+      <table id="4" parent="1" name="Orders"/>
+      <table id="5" parent="1" name="Products"/>
+      <table id="6" parent="1" name="Vendors"/>
+      <column id="7" parent="2" name="cust_id">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(10)(0,-1)|12</data-type>
+      </column>
+      <column id="8" parent="2" name="cust_name">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(50)(0,-1)|12</data-type>
+      </column>
+      <column id="9" parent="2" name="cust_address">
+        <data-type>CHAR(50)(0,-1)|12</data-type>
+      </column>
+      <column id="10" parent="2" name="cust_city">
+        <data-type>CHAR(50)(0,-1)|12</data-type>
+      </column>
+      <column id="11" parent="2" name="cust_state">
+        <data-type>CHAR(5)(0,-1)|12</data-type>
+      </column>
+      <column id="12" parent="2" name="cust_zip">
+        <data-type>CHAR(10)(0,-1)|12</data-type>
+      </column>
+      <column id="13" parent="2" name="cust_country">
+        <data-type>CHAR(50)(0,-1)|12</data-type>
+      </column>
+      <column id="14" parent="2" name="cust_contact">
+        <data-type>CHAR(50)(0,-1)|12</data-type>
+      </column>
+      <column id="15" parent="2" name="cust_email">
+        <data-type>CHAR(255)(0,-1)|12</data-type>
+      </column>
+      <key id="16" parent="2">
+        <columns>cust_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="17" parent="3" name="order_num">
+        <mandatory>1</mandatory>
+        <data-type>INT(0,-1)|4</data-type>
+      </column>
+      <column id="18" parent="3" name="order_item">
+        <mandatory>1</mandatory>
+        <data-type>INT(0,-1)|4</data-type>
+      </column>
+      <column id="19" parent="3" name="prod_id">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(10)(0,-1)|12</data-type>
+      </column>
+      <column id="20" parent="3" name="quantity">
+        <mandatory>1</mandatory>
+        <data-type>INT(0,-1)|4</data-type>
+      </column>
+      <column id="21" parent="3" name="item_price">
+        <mandatory>1</mandatory>
+        <data-type>DECIMAL(8,2)(0,-1)|6</data-type>
+      </column>
+      <key id="22" parent="3">
+        <columns>order_num
+order_item</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="23" parent="3" name="#FAKE_OrderItems_2">
+        <name-surrogate>1</name-surrogate>
+        <columns>order_num</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>Orders(order_num)</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="24" parent="3" name="#FAKE_OrderItems_1">
+        <name-surrogate>1</name-surrogate>
+        <columns>prod_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>Products(prod_id)</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="25" parent="4" name="order_num">
+        <mandatory>1</mandatory>
+        <data-type>INT(0,-1)|4</data-type>
+      </column>
+      <column id="26" parent="4" name="order_date">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="27" parent="4" name="cust_id">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(10)(0,-1)|12</data-type>
+      </column>
+      <index id="28" parent="4" name="sqlite_autoindex_Orders_1">
+        <name-surrogate>1</name-surrogate>
+        <columns>order_num</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="29" parent="4">
+        <columns>order_num)
+foreign key (cust_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="30" parent="4" name="#FAKE_Orders_1">
+        <name-surrogate>1</name-surrogate>
+        <columns>cust_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.Customers.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="31" parent="5" name="prod_id">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(10)(0,-1)|12</data-type>
+      </column>
+      <column id="32" parent="5" name="vend_id">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(10)(0,-1)|12</data-type>
+      </column>
+      <column id="33" parent="5" name="prod_name">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(255)(0,-1)|12</data-type>
+      </column>
+      <column id="34" parent="5" name="prod_price">
+        <mandatory>1</mandatory>
+        <data-type>DECIMAL(8,2)(0,-1)|6</data-type>
+      </column>
+      <column id="35" parent="5" name="prod_desc">
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <index id="36" parent="5" name="sqlite_autoindex_Products_1">
+        <name-surrogate>1</name-surrogate>
+        <columns>prod_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="37" parent="5">
+        <columns>prod_id)
+foreign key (vend_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="38" parent="5" name="#FAKE_Products_1">
+        <name-surrogate>1</name-surrogate>
+        <columns>vend_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.Vendors.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="39" parent="6" name="vend_id">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(10)(0,-1)|12</data-type>
+      </column>
+      <column id="40" parent="6" name="vend_name">
+        <mandatory>1</mandatory>
+        <data-type>CHAR(50)(0,-1)|12</data-type>
+      </column>
+      <column id="41" parent="6" name="vend_address">
+        <data-type>CHAR(50)(0,-1)|12</data-type>
+      </column>
+      <column id="42" parent="6" name="vend_city">
+        <data-type>CHAR(50)(0,-1)|12</data-type>
+      </column>
+      <column id="43" parent="6" name="vend_state">
+        <data-type>CHAR(5)(0,-1)|12</data-type>
+      </column>
+      <column id="44" parent="6" name="vend_zip">
+        <data-type>CHAR(10)(0,-1)|12</data-type>
+      </column>
+      <column id="45" parent="6" name="vend_country">
+        <data-type>CHAR(50)(0,-1)|12</data-type>
+      </column>
+      <key id="46" parent="6">
+        <columns>vend_id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
